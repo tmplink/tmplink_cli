@@ -3,7 +3,7 @@
 #@description: 上传文件到钛盘
 #@ahthor: tmplink studio
 #@version: 1
-#@date: 2023-03-09
+#@date: 2023-06-03
 
 # 设置默认值
 model=0
@@ -67,7 +67,7 @@ if [ -n "$selected_files" ]; then
     while read -r selected_file; do
         selected_file="${files[$((selected_file-1))]}"
         echo "正在上传 $selected_file"
-        curl -k -F "file=@\"$selected_file\"" -F "token=$token" -F "model=$model" -F "mrid=$mrid" -X POST "https://connect.tmp.link/api_v2/cli_uploader"
+        curl -k -F "file=@\"$selected_file\"" -F "token=$token" -F "model=$model" -F "mrid=$mrid" -X POST "https://tmp-cli.vx-cdn.com/app/upload_cli"
     done <<< "$selected_files"
 else
     echo "未选择任何文件"
